@@ -1,14 +1,13 @@
 #include<stdio.h>
 
-//���򣺴��������жϵ��������
-//���ߣ�����Դ 2020141460101 
-//����  2020��11��9�� 
+//程序：带星期计算的日期输出
+//作者:崔哲源 2020141460101
 
 int main(void)
 {
-	int month, day, year;             //�������ڲ��� 
-	int week, c, year1, month1;       //���ò��ٹ�ʽ�������� ��year1 ,month1���ں���ļ��㣬��ֹ�����ظ�ֵ��ʹ���������� 
-	c = 20 ;                          //����ֻ����21���͵����������ֱ�Ӹ����͸�ֵ
+	int month, day, year;
+	int week, c, year1, month1;       //使用month1,year1代替原变量参与运算，防止后续输出混乱
+	c = 20 ;                          //因为程序只考虑21世纪的情况，所以直接赋值为20
 	 
 	printf("Enter date (mm/dd/yy)");
 	scanf("%d /%d /%d",&month, &day, &year);
@@ -18,7 +17,7 @@ int main(void)
 		year1 = year;
 		year1 = year1 - 1;
 		month1 = month;
-		month1 = month1 + 12;   	//�ڲ��ٹ�ʽ��һ�¶��¿�����һ���ʮ���£�ʮ���� 
+		month1 = month1 + 12;   	//在蔡琴公式中某一年的1、2月要看作上一年的13、14月
 	}
 	else
 	{
@@ -27,10 +26,10 @@ int main(void)
 	}
 	
 	week = ( ( year1 + ( year1 / 4 ) + ( c / 4 ) - 2 * c + ( ( 26 * ( month1 + 1 ) ) / 10 ) + day - 1 ) % 7 );
-	//������������ʽ
+	//利用蔡琴公式计算星期，用7取余
 	
 	printf("Dated this %d",day);
-	switch (day)                             //�����ں���Ӻ�׺ 
+	switch (day)                             //在日期后加后缀
 		{
 		case 1: case 21 : case 31:
 			printf ("st");
@@ -48,7 +47,7 @@ int main(void)
 	
 	printf (" day of ");
 	
-	switch (month)                    //�ж��·� 
+	switch (month)                    //选择对应月份的英文
 		{
 		case 1:  printf("Jaunary");    break;
 		case 2:  printf("February");   break;
@@ -66,7 +65,7 @@ int main(void)
 	
 	printf(", ") ;
 	
-	switch (week)                    //�ж����ڼ� 
+	switch (week)                   //选择对应星期的英文
 		{
 		case 1: printf("Monday");      break;
 		case 2: printf("Tuesday");     break;
