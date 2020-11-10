@@ -1,16 +1,16 @@
 #include<stdio.h>
 
-//³ÌÐò£º´øÓÐÐÇÆÚÅÐ¶ÏµÄÈÕÆÚÊä³ö
-//×÷Õß£º´ÞÕÜÔ´ 2020141460101 
-//ÈÕÆÚ  2020Äê11ÔÂ9ÈÕ 
+//ï¿½ï¿½ï¿½ò£º´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//ï¿½ï¿½ï¿½ß£ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ 2020141460101 
+//ï¿½ï¿½ï¿½ï¿½  2020ï¿½ï¿½11ï¿½ï¿½9ï¿½ï¿½ 
 
 int main(void)
 {
-	int month, day, year;             //ÊäÈëÈÕÆÚ²ÎÊý 
-	int week, c, year1, month1;       //ÀûÓÃ²ÌÇÙ¹«Ê½¼ÆËãÐÇÆÚ £¬year1 ,month1ÓÃÓÚºóÃæµÄ¼ÆËã£¬·ÀÖ¹¼ÆËãÖØ¸³ÖµºóÊ¹Äê·ÝÊä³ö»ìÂÒ 
-	c = 20 ;                          //ÕâÀïÖ»¿¼ÂÇ21ÊÀ¼ÍµÄÇé¿ö£¬¿ÉÒÔÖ±½Ó¸øÊÀ¼Í¸³Öµ
+	int month, day, year;             //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ 
+	int week, c, year1, month1;       //ï¿½ï¿½ï¿½Ã²ï¿½ï¿½Ù¹ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½year1 ,month1ï¿½ï¿½ï¿½Úºï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ã£¬ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½Öµï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	c = 20 ;                          //ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½21ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½Ó¸ï¿½ï¿½ï¿½ï¿½Í¸ï¿½Öµ
 	 
-	printf("Enter date (mm/dd/yy)£º");
+	printf("Enter date (mm/dd/yy)");
 	scanf("%d /%d /%d",&month, &day, &year);
 	
 	if (month <= 2)
@@ -18,7 +18,7 @@ int main(void)
 		year1 = year;
 		year1 = year1 - 1;
 		month1 = month;
-		month1 = month1 + 12;   	//ÔÚ²ÌÇÙ¹«Ê½ÖÐÒ»ÔÂ¶þÔÂ¿´×÷ÉÏÒ»ÄêµÄÊ®ÈýÔÂ£¬Ê®ËÄÔÂ 
+		month1 = month1 + 12;   	//ï¿½Ú²ï¿½ï¿½Ù¹ï¿½Ê½ï¿½ï¿½Ò»ï¿½Â¶ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ê®ï¿½ï¿½ï¿½Â£ï¿½Ê®ï¿½ï¿½ï¿½ï¿½ 
 	}
 	else
 	{
@@ -27,10 +27,10 @@ int main(void)
 	}
 	
 	week = ( ( year1 + ( year1 / 4 ) + ( c / 4 ) - 2 * c + ( ( 26 * ( month1 + 1 ) ) / 10 ) + day - 1 ) % 7 );
-	//¼ÆËãÐÇÆÚÊý¹«Ê½
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½
 	
 	printf("Dated this %d",day);
-	switch (day)                             //ÔÚÈÕÆÚºóÃæ¼Óºó×º 
+	switch (day)                             //ï¿½ï¿½ï¿½ï¿½ï¿½Úºï¿½ï¿½ï¿½Óºï¿½×º 
 		{
 		case 1: case 21 : case 31:
 			printf ("st");
@@ -48,7 +48,7 @@ int main(void)
 	
 	printf (" day of ");
 	
-	switch (month)                    //ÅÐ¶ÏÔÂ·Ý 
+	switch (month)                    //ï¿½Ð¶ï¿½ï¿½Â·ï¿½ 
 		{
 		case 1:  printf("Jaunary");    break;
 		case 2:  printf("February");   break;
@@ -66,7 +66,7 @@ int main(void)
 	
 	printf(", ") ;
 	
-	switch (week)                    //ÅÐ¶ÏÐÇÆÚ¼¸ 
+	switch (week)                    //ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½Ú¼ï¿½ 
 		{
 		case 1: printf("Monday");      break;
 		case 2: printf("Tuesday");     break;
