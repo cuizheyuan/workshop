@@ -29,6 +29,7 @@ int main(void)
 	//利用蔡琴公式计算星期，用7取余
 	
 	printf("Dated this %d",day);
+	
 	switch (day)                             //在日期后加后缀
 		{
 		case 1: case 21 : case 31:
