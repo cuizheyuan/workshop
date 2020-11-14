@@ -3,7 +3,7 @@
 int main(void)
 {
     int x,y;
-    printf("Enter the number");
+    printf("Enter the number ");
     scanf("%d", &x);
     int i;
     for (i = 1; x >= 10; i++)
@@ -12,6 +12,6 @@ int main(void)
         x = x - y;
         x = x / 10;
     }
-    printf("There are %d digit(s) in the number.", i);
+    printf("\nThere are %d digit(s) in the number.", i);
     return 0;
 }
