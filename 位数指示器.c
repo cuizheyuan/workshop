@@ -12,6 +12,6 @@ int main(void)
         x = x - y;
         x = x / 10;
     }
-    printf("\nThere are %d digit(s) in the number.", i);
+    printf("There are %d digit(s) in the number.", i);
     return 0;
 }
