@@ -76,7 +76,7 @@ int main()
                             printf("Error");
                             return 1;
                     }
-
+                    printf(" ");
                     i = i + 2;//汉字占用两个数组位，直接跳过下一个数组
                 }
 
