@@ -6,6 +6,7 @@ int main()
     {
         int i = 0;
         char plate[1024] = {0};
+        printf("Please enter plate number");
         scanf("%s", plate);
         /*
         for (int i = 0; i <= 20;i++)
@@ -76,7 +77,6 @@ int main()
                             printf("Error");
                             return 1;
                     }
-                    printf(" ");
                     i = i + 2;//汉字占用两个数组位，直接跳过下一个数组
                 }
 
