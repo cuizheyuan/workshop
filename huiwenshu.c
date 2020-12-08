@@ -19,11 +19,11 @@ int main()
     scanf("%s", a);
     for (i = 0; i < 100; i++)
     {
-      if(a[i]!='0')
+      if(a[i]!='\000')
          m++;
       else{
          i = 0;
-         m = m - 1;
+         //m = m - 1;
          break;
       }
     }

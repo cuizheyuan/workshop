@@ -21,7 +21,7 @@ int main( )
       }
    }
 
-   for (i = 0; i < m ;i++)
+   for (i = 0; i <= m ;i++)
       {
          if((i+n)<m)
             str_c[i + n] = str[i];
