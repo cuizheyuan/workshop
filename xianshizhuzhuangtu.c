@@ -48,7 +48,7 @@ int main()
             }
         }
     }
-for (int i = hightest+1; i !=lowest-1;i--){
+for (int i = hightest; i !=lowest-1;i--){
     for (int k = 0; k < n ;k++){
         printf("%c", chart[i][k]);
         }
