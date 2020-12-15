@@ -23,7 +23,13 @@ int main()
     }
     for (int i = 1; i < temp+1;i++){
         scanf("%d", &height);
+        if(height>15||height<-15){
+            paint_character = height % 10+'0';
+            height = height / 10;
+            getchar();
+        }
         //拿到绘画字符，如果没有就填充为+
+        else{
         paint_character = getchar();
         if(paint_character!=' '&&paint_character!='\n'){
             if(i!=n-1)
@@ -31,6 +37,7 @@ int main()
         }
         else{
             paint_character = '+';
+        }
         }
         end_point = 15 + height;
         if(end_point>hightest)
@@ -48,6 +55,10 @@ int main()
             }
         }
     }
+if(hightest<15)
+    hightest = 15;
+if(lowest>15)
+    lowest = 15;
 for (int i = hightest; i !=lowest-1;i--){
     for (int k = 0; k < n ;k++){
         printf("%c", chart[i][k]);
