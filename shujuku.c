@@ -5,8 +5,8 @@ int r = 0;
 int c = 0;
 int flag_r = 0;
 int flag_c = 0;
-int table[1001][51];
-int table_swap[1001][51];
+int table[1001][51];      //操作的源表格
+int table_swap[1001][51]; //操作之后生成的新表格
 char command_list[10];
 
 void SR(void);
@@ -20,19 +20,19 @@ int main()
 {
     scanf("%d %d", &r, &c);
     getchar();
-    for (int i = 0; i < r;i++)//如何输入电子表格数据
+    for (int i = 0; i < r;i++)//通过遍历方式输入表格
     {
         for (int k = 0; k < c;k++)
             scanf("%d", &table[i + 1][k + 1]);
     }
     int command = 0;
-    scanf("%d", &command);
-    getchar();
+    scanf("%d", &command);//读取指令数量
+    getchar();            //吸收换行符
     for (int i = 0; i < command;i++)
     {
         for (int k = 0; k < 10;k++)
             command_list[k] = 0;
-        fgets(command_list,10,stdin);
+        fgets(command_list,10,stdin); //每次读取一条指令
         if(command_list[0]=='S' && command_list[1]=='R'){
             SR();
         }
@@ -52,6 +52,7 @@ int main()
             IC();
         }
     }
+    //以下为最后的输出结果部分
     for (int i = 0; i < r ;i++){
         for (int k = 0; k < c ;k++){
             printf("%d ", table[i+1][k+1]);
@@ -61,7 +62,7 @@ int main()
         return 0;
 }
 
-void SR(void)
+void SR(void)//交换行
 {
     int p = 0;
     int q = 0;
@@ -88,7 +89,7 @@ void SR(void)
     }
 }
 
-void SC(void)
+void SC(void)//交换列
 {
     int p = 0;
     int q = 0;
@@ -111,7 +112,7 @@ void SC(void)
     }
 }
 
-void DR(void)
+void DR(void)//删除行
 {
     int p = 0;
     p = command_list[3] - 48;
@@ -136,7 +137,7 @@ void DR(void)
     }
 }
 
-void DC(void)
+void DC(void)//删除列
 {
     int q = 0;
     q = command_list[3] - 48;
@@ -158,13 +159,13 @@ void DC(void)
     }
 }
 
-void IR(void)
+void IR(void)//插入行
 {
     int p = 0;
     p = command_list[3] - 48;
     r++;
     for(int k=0;k<c+1;k++)
-        table_swap[p][k] = 0;
+        table_swap[p][k] = 0;//提前先把插入的行写满0
     for (int i = 0; i < r;i++)
     {
         if(i+1 < p){
@@ -183,13 +184,13 @@ void IR(void)
     }
 }
 
-void IC(void)
+void IC(void)//插入列
 {
     int q = 0;
     q = command_list[3] - 48;
     c++;
     for(int i=0;i<r;i++)
-        table_swap[i+1][q] = 0;
+        table_swap[i+1][q] = 0;//提前把插入的列写满0
     for (int i = 0; i < r;i++)
     {
         for (int k = 0; k < c+1;k++)
