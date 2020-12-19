@@ -129,7 +129,18 @@ int main()
         }
         }
     }
+    if(MAX==0)
+    printf("None");
+    else if(counter_p==1){
+        printf("%s ", pointer[line]);
+        printf("%d\n", MAX);
+    }
+    else{
     //下面对于指针进行排序
+    for (int i = 0; i < number;i++){
+        if(counter[i]<MAX)
+            table[i] = false;
+    }
     for (int i = 0; i < number;i++){
         for (int k = i+1; k < number;k++){
             if(table[i]&&table[k]){
@@ -142,13 +153,7 @@ int main()
         }
     }
     //显示回文数
-    if(MAX==0)
-    printf("None");
-    else if(counter_p==1){
-        printf("%s ", pointer[line]);
-        printf("%d\n", MAX);
-    }
-    else{
+
         for (int t = 0; t < number;t++){
             if(table[t]!=false){
             printf("%s ", pointer[t]);

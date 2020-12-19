@@ -1,51 +1,77 @@
 #include<stdio.h>
 #include<stdbool.h>
+#include<string.h>
 
 int isHuiWenshu(char number[]);
-int compare(char a[],char b[],int length_a,int length_b);
+int compare(char a[],char b[]);
 int main()
 {
     int line = 0;
-    int length = 0;
-    int length_1[65536] = {0};
-    int number = -1;
-    static int i = 0;
+    int length[128] = {0};
+    int length_1[128] = {0};
+    int number = 0;
+    int i = 0;
     int q = 0;
     int counter_c = 1;
-    int counter_p = 1;
+    int counter_p = 0;
     int flag_1 = 1;
     int MAX = 0;
     int temp = 0;
-    char *temp_1;
+    int temp_1 = 1;
     int counter[128] = {0};
-    char host_char[128] = {0};
+    //char host_char[128]={0};
+    char host_char_1[128][128];
     char judge[128][1024] = {0};
     char *pointer[128];
     bool table[128];
+    for(int i=0;i<128;i++){
+        for (int k = 0; k < 1024;k++)
+            host_char_1[i][k] = 0;
+    }
     for (int i = 0; i < 128;i++)
         table[i] = true;
         //judge中一共有128行存储不同的数字串，每个数字串可以存储1024个数字字符
-    for (int i = 0; i < 65536;i++){
-    temp=getchar();
-    if(temp==-1||temp==26){
-        host_char[i] = 10;
-        break;
+/*
+    while(1){
+        temp = getchar();
+        if(temp==-1)
+            goto L;
+        else
+            ungetc(temp, stdin);
+        fgets(host_char_1[temp_1], 128, stdin);
+        temp_1++;
     }
-    else
-        host_char[i] = temp;
+*/
+
+    for(int i=0;i<128;i++){
+        for (int k = 0; k < 128;k++){
+        temp=getchar();
+        if(temp==-1||temp==26)
+            goto L;
+        else if(temp==10){
+            host_char_1[i][k] = 10;
+            break;
+        }
+        else
+            host_char_1[i][k] = temp;
+        }
     }
-    for (int i = 0; i < 65536; i++){
-      if(host_char[i]!=0)
-         length++;
+
+L:
+for(int i=0;i<100;i++){
+    for (int k = 0; k < 100; k++){
+      if(host_char_1[i][k]!='\000')
+         length[i]++;
       else{
-         i = 0;
-         break;
+          break;
       }
     }
+}
     //printf("%d\n", length); 
     //接下来进行整个文本中数字串的判断
-    for (int k = 0; k <= length;k++){
-        switch (host_char[k]){
+for (int r = 0; r < 128;r++){
+    for (int k = 0; k <= length[r];k++){
+        switch (host_char_1[r][k]){
         case 48://0
         case 49://1
         case 50://2
@@ -56,12 +82,14 @@ int main()
         case 55://7
         case 56://8
         case 57://9
-            judge[i][q] = host_char[k];
+            judge[i][q] = host_char_1[r][k];
             flag_1 = 0;
             q++;
             break;
+        case 0:
+            break;
         default:
-            if(flag_1==0||host_char[k]==0){
+            if(flag_1==0||host_char_1[r][k]==0){
             number++;
             i++;
             q = 0;
@@ -70,6 +98,7 @@ int main()
             break;
         }
     }
+}
     //指针指向所有相同字符串
     for (i = 0; i < number;i++)
         pointer[i] = judge[i];
@@ -92,6 +121,18 @@ int main()
         }
         }
     }
+    //对所有相同字符串进行计数
+    for (i = 0; i < number;i++){
+        if(table[i]==false)
+        break;
+        counter_c = 1;
+        for (int k = i+1; k < number;k++){
+            if(pointer[i]==pointer[k]){
+            counter_c++;
+            }
+        }
+        counter[i] = counter_c * isHuiWenshu(pointer[i]);
+    }
     for (i = 0; i < 128; i++){
         for (int k = 0; k < 1024;k++)
             if (judge[i][k] != '\000')
@@ -100,45 +141,30 @@ int main()
          break;
       }
     }
-
-    //对所有相同字符串进行计数
-    for (i = 0; i < number;i++){
-        counter_c = 1;
-        if(table[i]==false)
-            continue;
-        for (int k = i+1; k <= number;k++){
-            if(pointer[i]==pointer[k]){
-            counter_c++;
-            }
-        }
-        counter[i] = counter_c * isHuiWenshu(pointer[i]);
-        if( ! isHuiWenshu(pointer[i])){
-            table[i] = false;
-        }
-    }
-
+    counter_p = 1;
     //找出回文数最多的情况
     for (i = 0; i < number;i++){
         if(table[i]!=false){
+        //接下来判断哪个大，如果前者大就交换指针
+        
         if(MAX==counter[i]&&MAX!=0){
             counter_p++;
+            if(length_1[line]<length_1[i]){
+                pointer[line] = judge[i];
+                pointer[i] = judge[line];
+            }
+            else if(length_1[line]==length_1[i]){
+                if (compare(pointer[i], pointer[line])){
+                    pointer[line] = judge[i];
+                    pointer[i] = judge[line];
+                }
+            }
         }
-        if(MAX<counter[i]){
+        else if(MAX<counter[i]){
         MAX = counter[i];
         line = i;
         }
-        }
-    }
-    //下面对于指针进行排序
-    for (int i = 0; i < number;i++){
-        for (int k = i+1; k < number;k++){
-            if(table[i]&&table[k]){
-            if(compare(judge[i],judge[k],length_1[i],length_1[k])){
-                 temp_1 = pointer[i];
-                 pointer[i] = pointer[k];
-                 pointer[k] = temp_1;
-            }
-            }
+        
         }
     }
     //显示回文数
@@ -149,7 +175,7 @@ int main()
         printf("%d\n", MAX);
     }
     else{
-        for (int t = 0; t < number;t++){
+        for (int t = 0; t < counter_p;t++){
             if(table[t]!=false){
             printf("%s ", pointer[t]);
             printf("%d\n", MAX);
@@ -169,8 +195,6 @@ int isHuiWenshu(char number[])
     int flag = 1;
     m = 0;
     flag = 1;
-    if(number[0]=='0')
-        return 0;
     for (i = 0; i < 100; i++){
       if(number[i]!='\000')
          m++;
@@ -180,8 +204,6 @@ int isHuiWenshu(char number[])
          break;
       }
     }
-    if(m<=1)
-        return 0;
     for (i = 0; i < m / 2;i++){
         if(number[i] != number[m-i-1]){
             flag = 0;
@@ -197,23 +219,15 @@ return flag;
     //flag为0时就不是回文数
 }
 
-int compare(char a[],char b[],int length_a,int length_b)
+int compare(char a[],char b[])
 {
-    int flag = 1;
-    if(length_a>length_b)
-        return true;
-    else if(length_a<length_b)
-        return false;
-    else{
+    int flag = 0;
     for (int i = 0; i < 1024;i++)
-    if(a[i]>=b[i]){
+     if(a[i]>b[i])
         break;
-    }
     else{
-        flag = 0;
+        flag = 1;
         break;
-    }
     }
     return flag;
-    //flag为0时a比b大，为1时b比a大
 }
