@@ -38,8 +38,8 @@ int main()
         
     }
     if(flag==0)
-        printf("Yes\n");
+        printf("yes\n");
     else
-        printf("No\n");
+        printf("no\n");
     }
 }
