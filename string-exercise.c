@@ -7,17 +7,22 @@ int func_length(char str[]);
 int main()
 {
 	int length = 0;
-	char str[N]={0};
+	char str[128][N]={0};
+    int counter = 0;
     while(1){
         char temp = 0;
-        scanf("%s", str);
+        scanf("%s", str[counter]);
         temp = getchar();
+        counter++;
         if(temp==-1||temp==10)
             break;
     }
-	length=func_length(str);
-	printf("%d\n",length);
-    strcp(str, length);
+    for (int i = 0; i < counter;i++)
+    {
+        length = func_length(str[i]);
+        printf("%d\n", length);
+        strcp(str[i], length);
+    }
     return 0;
 }
 int func_length(char str[])
