@@ -10,9 +10,9 @@ int main()
 	char str[N]={0};
 	scanf("%s",str);
 	length=func_length(str);
-	printf("%d",length);
-	return 0;
+	printf("%d\n",length);
     strcp(str, length);
+    return 0;
 }
 int func_length(char str[])
 {
@@ -28,7 +28,13 @@ int func_length(char str[])
 
 void strcp(char str[],int length)
 {
+    int length_1 = 0;
+    int length_2 = 0;
     char str_cp[1024] = {0};
     strcpy(str_cp, str);
-    printf("%s", str_cp);
+    printf("%s\n", str_cp);
+    length_1 = strnlen(str, 200);
+    length_2 = strlen(str);
+    printf("%d\n", length_1);
+    printf("%d\n", length_2);
 }
