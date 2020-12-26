@@ -8,7 +8,13 @@ int main()
 {
 	int length = 0;
 	char str[N]={0};
-	scanf("%s",str);
+    while(1){
+        char temp = 0;
+        scanf("%s", str);
+        temp = getchar();
+        if(temp==-1||temp==10)
+            break;
+    }
 	length=func_length(str);
 	printf("%d\n",length);
     strcp(str, length);
