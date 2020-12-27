@@ -64,5 +64,5 @@ void strcp(char str[],int length)
 
 void print_n(char string[])
 {
-    
+    //这里应该放置一行精妙绝伦的打印代码，可惜我不行
 }
