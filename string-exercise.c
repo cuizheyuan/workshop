@@ -64,5 +64,5 @@ void strcp(char str[],int length)
 
 void print_n(char string[])
 {
-    //puts means put string
+    
 }
