@@ -2,6 +2,7 @@
 #include<string.h>
 #define N 1024
 
+void print_n(void);
 void strcp(char str[], int length);
 int func_length(char str[]);
 int main()
@@ -22,6 +23,7 @@ int main()
         length = func_length(str[i]);
         printf("%d\n", length);
         strcp(str[i], length);
+        print_n();
     }
     return 0;
 }
@@ -62,7 +64,14 @@ void strcp(char str[],int length)
     puts(strcat(str, str_new));
 }
 
-void print_n(char string[])
+void print_n(void)
 {
-    //这里应该放置一行精妙绝伦的打印代码，可惜我不行
+    struct info
+    {
+        char name[100];
+        int ID;
+    };
+    struct info person[100];
+    strcpy(person[1].name,"Tim Cock");
+    printf("%s", person[1].name);
 }
