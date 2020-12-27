@@ -58,4 +58,11 @@ void strcp(char str[],int length)
     //length_3 = sizeof(str[0]);
     //printf("%d\n", length_3);
     //sizeof函数不适用于字符串元素的判断
+    char str_new[1024] = {" nmsl"};
+    puts(strcat(str, str_new));
+}
+
+void print_n(char string[])
+{
+    //puts means put string
 }
