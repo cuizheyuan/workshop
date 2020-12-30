@@ -2,7 +2,7 @@
 
 void sub(int a,int b,int c);
 void switch_month(int month);
-int is_MMDDYY(int month,int day,int year);
+int is_MMDDYY(int a,int b,int c);
 int is_run(int year);
 int main()
 {
@@ -111,13 +111,14 @@ int is_run(int year)
 
 void sub(int a,int b,int c)
 {
+	int temp=0;
 	long temp1=0;
 	long temp2=0;
 	int year1,month1,day1; 
 	int year2,month2,day2;
-	temp1 = 10000 * a + 100 * b + c; //YY/MM/DD
-	temp2 = 10000 * c + 100 * a + b; //MM/DD/YY
-	if(temp1<temp2){//脠芦虏驴脮没脌铆脦陋YY/MM/DD 
+	temp1=10000*a+100*b+c;//YY/MM/DD
+	temp2=10000*c+100*a+b;//MM/DD/YY
+	if(temp1<temp2){//全部整理为YY/MM/DD 
 		year2=c;
 		month2=a;
 		day2=b;
@@ -133,7 +134,7 @@ void sub(int a,int b,int c)
 		month2=b;
 		day2=c;
 	}
-	int counter=0;
+	int counter
 	while(1){
 		switch(month1)
 	{
@@ -144,36 +145,37 @@ void sub(int a,int b,int c)
 		case 8:
 		case 10:
 		case 12:
-		if(day1==31&&month1==12){
-			day1 = 1;
-			month1 = 1;
-			year1 += 1;
-		}
 			if(day1==day2){
 				if(month1==month2){
 					if(year1==year2)
-						goto p;
+					break;
+					else{
+						day=1;
+						month1=1;
+						year1+=1;
+						counter++;
+					}
 				}
 				else{
-					if(day1==31){
+					if(day=31){
 						day1=1;
 						month1+=1;
 						counter++;
 					}
 					else{
-						day1+=1;
+						day+=1;
 						counter++;
 					}
 				}
 			}
 			else{
-				if(day1==31){
+				if(day=31){
 					day1=1;
 					month1+=1;
 					counter++;
 					}
 				else{
-					day1+=1;
+					day+=1;
 					counter++;
 				}
 			}
@@ -182,78 +184,74 @@ void sub(int a,int b,int c)
 		case 6:
 		case 9:
 		case 11:
-		if(day1==31&&month1==12){
-			day1 = 1;
-			month1 = 1;
-			year1 += 1;
-		}
 			if(day1==day2){
 				if(month1==month2){
 					if(year1==year2)
-						goto p;
+					break;
+					else{
+						day=1;
+						month1=1;
+						year1+=1;
+						counter++;
+					}
 				}
 				else{
-					if(day1==30){
+					if(day=30){
 						day1=1;
 						month1+=1;
 						counter++;
 					}
 					else{
-						day1+=1;
+						day+=1;
 						counter++;
 					}
 				}
 			}
 			else{
-				if(day1==30){
+				if(day=30){
 					day1=1;
 					month1+=1;
 					counter++;
 					}
 				else{
-					day1+=1;
+					day+=1;
 					counter++;
 				}
 			}
-			break;	
+			break;		
 		case 2:
-		if(day1==31&&month1==12){
-			day1 = 1;
-			month1 = 1;
-			year1 += 1;
-			}
-			if(is_run(year1)){
+			if(is_run(year)){
 				if(day1==day2){
 				if(month1==month2){
 					if(year1==year2)
-						goto p;
+					break;
 					else{
-						day1=1;
+						day=1;
 						month1=1;
 						year1+=1;
 						counter++;
 					}
 				}
 				else{
-					if(day1==29){
+					if(day=29){
 						day1=1;
 						month1+=1;
 						counter++;
 					}
 					else{
-						day1+=1;
+						day+=1;
 						counter++;
 					}
 				}
 			}
 			else{
-				if(day1==29){
+				if(day=29){
 					day1=1;
 					month1+=1;
 					counter++;
 					}
 				else{
-					day1+=1;
+					day+=1;
 					counter++;
 				}
 			}
@@ -263,42 +261,44 @@ void sub(int a,int b,int c)
 				if(day1==day2){
 				if(month1==month2){
 					if(year1==year2)
-						goto p;
+					break;
 					else{
-						day1=1;
+						day=1;
 						month1=1;
 						year1+=1;
 						counter++;
 					}
 				}
 				else{
-					if(day1==28){
+					if(day=29){
 						day1=1;
 						month1+=1;
 						counter++;
 					}
 					else{
-						day1+=1;
+						day+=1;
 						counter++;
 					}
 				}
 			}
 			else{
-				if(day1==28){
+				if(day=29){
 					day1=1;
 					month1+=1;
 					counter++;
 					}
 				else{
-					day1+=1;
+					day+=1;
 					counter++;
 				}
 			}
 			break;		
 			}
+		default:
+		return 0;	
 	}
-	
+}
+}
 	}
-	p:
 	printf("%d",counter);
 }
