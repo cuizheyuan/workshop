@@ -136,6 +136,7 @@ void sub(int a,int b,int c)
 	}
 	int counter=0;
 	while(1){
+		is_month:
 		switch(month1)
 		{
 		case 1:
@@ -154,11 +155,16 @@ void sub(int a,int b,int c)
 			offset = 2;
 			break;
 		case 2:
-			if(is_run(year1))
+			if(is_run(year1)){
 				offset = 1;
-			else
+			break;
+			}
+			else{
 				offset = 0;
+			break;
+			}
 		}
+		is_day:
 		if(day1==day2)
 			if(month1==month2)
 				if(year1==year2)
@@ -168,13 +174,18 @@ void sub(int a,int b,int c)
 		if(day1>28+offset){
 			month1++;
 			day1 = 1;
+			goto is_month;
 		}
 		if(month1>12){
 			year1++;
 			month1 = 1;
 			day1 = 1;
+			counter--;
+			goto is_month;
 		}
+		goto is_day;
+	}
 	p:
 	printf("%d",counter);
-	}
+	
 }
