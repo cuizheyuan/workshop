@@ -127,12 +127,7 @@ void sub(int a,int b,int c)
 		day1=c;
 	}
 	else{
-		year1=c;
-		month1=a;
-		day1=b;
-		year2=a;
-		month2=b;
-		day2=c;
+
 	}
 	int counter=0;
 	while(1){
