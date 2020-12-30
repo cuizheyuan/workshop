@@ -148,6 +148,8 @@ void sub(int a,int b,int c)
 			day1 = 1;
 			month1 = 1;
 			year1 += 1;
+			counter++;
+			break;
 		}
 			if(day1==day2){
 				if(month1==month2){
@@ -186,11 +188,24 @@ void sub(int a,int b,int c)
 			day1 = 1;
 			month1 = 1;
 			year1 += 1;
+			counter++;
+			break;
 		}
 			if(day1==day2){
 				if(month1==month2){
 					if(year1==year2)
 						goto p;
+					else{
+					if(day1==30){
+						day1=1;
+						month1+=1;
+						counter++;
+					}
+					else{
+						day1+=1;
+						counter++;
+					}
+				}
 				}
 				else{
 					if(day1==30){
@@ -217,88 +232,9 @@ void sub(int a,int b,int c)
 			}
 			break;	
 		case 2:
-		if(day1==31&&month1==12){
-			day1 = 1;
-			month1 = 1;
-			year1 += 1;
-			}
-			if(is_run(year1)){
-				if(day1==day2){
-				if(month1==month2){
-					if(year1==year2)
-						goto p;
-					else{
-						day1=1;
-						month1=1;
-						year1+=1;
-						counter++;
-					}
-				}
-				else{
-					if(day1==29){
-						day1=1;
-						month1+=1;
-						counter++;
-					}
-					else{
-						day1+=1;
-						counter++;
-					}
-				}
-			}
-			else{
-				if(day1==29){
-					day1=1;
-					month1+=1;
-					counter++;
-					}
-				else{
-					day1+=1;
-					counter++;
-				}
-			}
-			break;		
-			}
-			else{
-				if(day1==day2){
-				if(month1==month2){
-					if(year1==year2)
-						goto p;
-					else{
-						day1=1;
-						month1=1;
-						year1+=1;
-						counter++;
-					}
-				}
-				else{
-					if(day1==28){
-						day1=1;
-						month1+=1;
-						counter++;
-					}
-					else{
-						day1+=1;
-						counter++;
-					}
-				}
-			}
-			else{
-				if(day1==28){
-					day1=1;
-					month1+=1;
-					counter++;
-					}
-				else{
-					day1+=1;
-					counter++;
-				}
-			}
-			break;		
-			}
-	}
-	
-	}
+		if(day1==31&&month1==12)
+			if(is_run(year1))
+
 	p:
 	printf("%d",counter);
 }

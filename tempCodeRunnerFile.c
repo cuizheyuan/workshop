@@ -144,16 +144,17 @@ void sub(int a,int b,int c)
 		case 8:
 		case 10:
 		case 12:
+		if(day1==31&&month1==12){
+			day1 = 1;
+			month1 = 1;
+			year1 += 1;
+			counter++;
+			break;
+		}
 			if(day1==day2){
 				if(month1==month2){
 					if(year1==year2)
 						goto p;
-					else{
-						day1=1;
-						month1=1;
-						year1+=1;
-						counter++;
-					}
 				}
 				else{
 					if(day1==31){
@@ -183,16 +184,28 @@ void sub(int a,int b,int c)
 		case 6:
 		case 9:
 		case 11:
+		if(day1==31&&month1==12){
+			day1 = 1;
+			month1 = 1;
+			year1 += 1;
+			counter++;
+			break;
+		}
 			if(day1==day2){
 				if(month1==month2){
 					if(year1==year2)
-					break;
+						goto p;
 					else{
+					if(day1==30){
 						day1=1;
-						month1=1;
-						year1+=1;
+						month1+=1;
 						counter++;
 					}
+					else{
+						day1+=1;
+						counter++;
+					}
+				}
 				}
 				else{
 					if(day1==30){
@@ -217,19 +230,31 @@ void sub(int a,int b,int c)
 					counter++;
 				}
 			}
-			break;		
+			break;	
 		case 2:
+		if(day1==31&&month1==12){
+			day1 = 1;
+			month1 = 1;
+			year1 += 1;
+			counter++;
+			break;
+			}
 			if(is_run(year1)){
 				if(day1==day2){
 				if(month1==month2){
 					if(year1==year2)
-					break;
+						goto p;
 					else{
+					if(day1==29){
 						day1=1;
-						month1=1;
-						year1+=1;
+						month1+=1;
 						counter++;
 					}
+					else{
+						day1+=1;
+						counter++;
+					}
+				}
 				}
 				else{
 					if(day1==29){
@@ -260,16 +285,21 @@ void sub(int a,int b,int c)
 				if(day1==day2){
 				if(month1==month2){
 					if(year1==year2)
-					break;
-					else{
+						goto p;
+						else{
+					if(day1==28){
 						day1=1;
-						month1=1;
-						year1+=1;
+						month1+=1;
+						counter++;
+					}
+					else{
+						day1+=1;
 						counter++;
 					}
 				}
+				}
 				else{
-					if(day1==29){
+					if(day1==28){
 						day1=1;
 						month1+=1;
 						counter++;
@@ -281,7 +311,7 @@ void sub(int a,int b,int c)
 				}
 			}
 			else{
-				if(day1==29){
+				if(day1==28){
 					day1=1;
 					month1+=1;
 					counter++;
