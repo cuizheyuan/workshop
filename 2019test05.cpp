@@ -25,7 +25,7 @@ int main()
 				sub_arr[k]=num_ori[k+i];
 			}
 			int temp=0;
-			for(int p=0;p<w;p++){
+			for(int p=0;p<w-1;p++){
 				for(int q=p+1;q<w;q++){
 					if(sub_arr[p]>sub_arr[q]){
 						temp=sub_arr[p];
@@ -38,6 +38,13 @@ int main()
 		}
 		if(w%2==0)
 		printf("ERROR");
+	else if(w>n){
+		for(int i=0;i<n;i++){
+		printf("%d ",num[i]);
+		}
+		printf("\n");
+	}
+	
 	else{
 		for(int i=0;i<n;i++){
 		printf("%d ",num[i]);
@@ -45,5 +52,6 @@ int main()
 		printf("\n");
 		
 	}
+	return 0;
 	
 }
