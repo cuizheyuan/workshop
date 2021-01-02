@@ -172,8 +172,7 @@ void sub(int a,int b,int c)
 			if(month1==month2)
 				if(year1==year2)
 					goto p;
-		day1++;
-		counter++;
+		
 		if(day1>28+offset){
 			month1++;
 			day1 = 1;
@@ -183,9 +182,10 @@ void sub(int a,int b,int c)
 			year1++;
 			month1 = 1;
 			day1 = 1;
-			counter--;
 			goto is_month;
 		}
+		day1++;
+		counter++;
 		goto is_day;
 	}
 	p:

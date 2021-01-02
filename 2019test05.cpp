@@ -39,10 +39,7 @@ int main()
 		if(w%2==0)
 		printf("ERROR");
 	else if(w>n){
-		for(int i=0;i<n;i++){
-		printf("%d ",num[i]);
-		}
-		printf("\n");
+		printf("ERROR");
 	}
 	
 	else{
