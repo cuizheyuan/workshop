@@ -16,12 +16,12 @@ int main()
 	else if(r1){
 		switch_month(a);
 	    printf("%d, ",b);
-	    printf("20%d",c);
+	    printf("20%.2d",c);
 	}
 	else{
 		switch_month(b);
 	    printf("%d, ",c);
-	    printf("20%d",a);
+	    printf("20%.2d",a);
 	}
 }
 
