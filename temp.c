@@ -67,7 +67,7 @@ int is_MMDDYY(int a,int b,int c)
 		case 8:
 		case 10:
 		case 12:
-			if(b>31)
+			if(b>31||b<1)
 			return 0;
 			else
 			return 1;
@@ -75,19 +75,19 @@ int is_MMDDYY(int a,int b,int c)
 		case 6:
 		case 9:
 		case 11:
-			if(b>30)
+			if(b>30||b<1)
 			return 0;
 			else
 			return 1;
 		case 2:
 			if(is_run(c)){
-				if(b>29)
+				if(b>29||b<1)
 				return 0;
 				else
 				return 1;
 			}
 			else{
-				if(b>28)
+				if(b>28||b<1)
 				return 0;
 				else
 				return 1;
