@@ -25,12 +25,12 @@ int main()
 				sub_arr[k]=num_ori[k+i];
 			}
 			int temp=0;
-			for(int p=0;p<w-1;p++){
-				for(int q=p+1;q<w;q++){
-					if(sub_arr[p]>sub_arr[q]){
-						temp=sub_arr[p];
-						sub_arr[p]=sub_arr[q];
-						sub_arr[q]=temp;
+			for(int p=0;p<w;p++){
+				for(int q=0;q<w-1;q++){
+					if(sub_arr[q+1]<sub_arr[q]){
+						temp=sub_arr[q];
+						sub_arr[q]=sub_arr[q+1];
+						sub_arr[q+1]=temp;
 					}
 				}
 			}
