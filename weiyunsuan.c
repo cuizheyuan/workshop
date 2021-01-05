@@ -8,6 +8,6 @@ int main()
     unsigned int k = -10;
     //int k, l;
     printf("%d\n", ~i+1);
-    printf("%d\n", j<<=4);
+    printf("%d\n", i+j>>3);
     printf("%u\n", ~k);
 }
