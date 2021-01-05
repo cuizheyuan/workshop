@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-
+void re(int *pointer);
 int main()
 {
     int *p;
@@ -8,6 +8,13 @@ int main()
     p = &n;
     //&为取地址符号，即取一个变量的地址
     //p变量本身存储的是地址数，使用*符号可以表示p所指向的地址的值
-    printf("%d\n", &p);
-    printf("%d\n", &n);
+    printf("%d\n", *p);
+    printf("%d\n", n);
+    re(p);
+    printf("%d\n", n);
+}
+
+void re(int *pointer)
+{
+    (*pointer)++;
 }
