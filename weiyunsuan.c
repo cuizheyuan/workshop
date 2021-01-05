@@ -3,11 +3,11 @@
 
 int main()
 {
-    int i = 12;
-    int j = 10;
-    unsigned int k = -10;
-    //int k, l;
-    printf("%d\n", ~i+1);
-    printf("%d\n", i+j>>3);
-    printf("%u\n", ~k);
+    int *p;
+    int n = 12;
+    p = &n;
+    //&为取地址符号，即取一个变量的地址
+    //p变量本身存储的是地址数，使用*符号可以表示p所指向的地址的值
+    printf("%d\n", &p);
+    printf("%d\n", &n);
 }
