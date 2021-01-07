@@ -24,4 +24,10 @@ int main()
         struct STRU *p1;
     };
     struct STRU fuu[10];
+
+    int x1 = 1;
+    int y1 = 2;
+    int z1 = 3;
+    (x1 > y1) && z1 = 7;
+    printf("%d", z1);
 }
