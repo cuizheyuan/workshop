@@ -17,5 +17,11 @@ int main()
     char *p2 = &b[2][4];
     printf("%lld", p2-b[2]);
     printf("%d", p2[9]-b[3][5]);
-
+    struct STRU
+    {
+        int a, b;
+        char c;
+        struct STRU *p1;
+    };
+    struct STRU fuu[10];
 }
