@@ -100,8 +100,8 @@ int main()
             }
         }
         int offset = 0;
-        char queue[5] = {0};
-        fgets(queue, 5, stdin);
+        char queue[6] = {0};
+        fgets(queue, 6, stdin);
         for (int i = 0; i < 7;i++){
             if(queue[i]==10)
                 queue[i] = 0;
