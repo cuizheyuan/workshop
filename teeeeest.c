@@ -28,6 +28,8 @@ int main()
     int x1 = 1;
     int y1 = 2;
     int z1 = 3;
-    (x1 > y1) && z1 = 7;
     printf("%d", z1);
+
+    char arr[3][4] = {{"abcd"}, {"1234"},{"bomb"}};
+    printf("%s", *arr+2);
 }
