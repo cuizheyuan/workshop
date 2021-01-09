@@ -30,7 +30,8 @@ int main()
     int z1 = 3;
     printf("%d\n", z1);
 
-    char arr[3][5] = {{"abcd"}, {"1234"},{"bomb"}};
+    char arr[3][4] = {{"abcd"}, {"1234"},{"bomb"}};
     printf("%s\n", *arr+2);
+    printf("%s\n", arr[1] + 2);
 
 }
