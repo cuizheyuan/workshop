@@ -1,7 +1,7 @@
 #include<stdio.h>
 
 //旨在测试考试中出现的奇奇怪怪的写法
-void somefunc(char arr);
+void somefunc(char *arr);
 int main()
 {
     int m = 1;
@@ -33,10 +33,10 @@ int main()
     char arr[3][4] = {{"abcd"}, {"1234"},{"bomb"}};
     printf("%s\n", *arr+2);
     printf("%s\n", arr[1] + 2);
-    somefunc(**arr);
+    somefunc(*arr);
 }
 
-void somefunc(char arr)
+void somefunc(char *arr)
 {
-    printf("%c\n", arr);
+    printf("%s\n", arr);
 }
