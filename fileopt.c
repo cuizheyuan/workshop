@@ -7,6 +7,6 @@ int main(int argc,char* argv[])
     char content[128];
     scanf("%s", name);
     fp = fopen(name, "r");
-    fscanf(fp, "%s", content);
+    fgets(content, 128, fp);
     fprintf(stdout, "%s", content);
 }
