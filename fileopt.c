@@ -12,6 +12,6 @@ int main(int argc,char* argv[])
     //fgets(content, 128, fp);
     //fprintf(stdout, "%s", content);
     for (int i = 0; i < 8;i++)
-        sprintf((char *)out, "%d", *in);
+        sprintf((char*)out, "%d %d %d", in[0],in[1],in[2]);
     printf("%s ", (char*)out);
 }
