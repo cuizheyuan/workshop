@@ -39,4 +39,5 @@ int main()
 void somefunc(char *arr)
 {
     printf("%s\n", arr);
+    
 }
